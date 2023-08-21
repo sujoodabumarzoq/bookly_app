@@ -62,7 +62,7 @@ flutter:
   fonts:
     - family: GT Sectra Fine
       fonts:
-        - asset: assets/fonts/GT Sectra Fine Regular.ttf
+      - asset: assets/fonts/GT Sectra Fine Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

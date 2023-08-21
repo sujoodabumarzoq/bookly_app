@@ -1,5 +1,3 @@
-import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
-import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,7 +55,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
     );
 
     slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
+        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
             .animate(animationController);
 
     animationController.forward();
@@ -65,7 +63,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
 
   void navigateToHome() {
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 10),
       () {
         // Get.to(() => const HomeView(),
         //     // calculations
