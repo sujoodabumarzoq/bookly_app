@@ -27,7 +27,7 @@ class Item extends BookEntity {
   }): super(
     bookid: id!,
     title: volumeInfo!.title!,
-    authorName: volumeInfo.authors!.first,
+    authorName: volumeInfo.authors?.first?? 'no name',
     image: volumeInfo.imageLinks?.thumbnail ?? '',
     price: 0.0,
     rating: volumeInfo.maturityRating,
