@@ -24,14 +24,14 @@ class Item extends BookEntity {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  }): super(
-    bookid: id!,
-    title: volumeInfo!.title!,
-    authorName: volumeInfo.authors?.first?? 'no name',
-    image: volumeInfo.imageLinks?.thumbnail ?? '',
-    price: 0.0,
-    rating: volumeInfo.maturityRating,
-  );
+  }) : super(
+          bookid: id!,
+          title: volumeInfo!.title!,
+          authorName: volumeInfo.authors?.first ?? 'no name',
+          image: volumeInfo.imageLinks?.thumbnail ?? '',
+          price: 0.0,
+          rating: volumeInfo.maturityRating,
+        );
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         kind: json['kind'] as String?,
         id: json['id'] as String?,
