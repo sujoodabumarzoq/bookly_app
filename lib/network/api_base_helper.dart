@@ -9,12 +9,12 @@ class ApiBaseHelper {
 //2 url هاذا هنا بتكون عبارة عن END POINRTE
   // DATA الي راحع عبارة عن  Map<String, String>
 
-  Future<dynamic> get(String url, Map<String, String> header) async {
+  Future<dynamic> get(String url) async {
     var responseJson;
     try {
       // هنا هتكون عبارة عن عنوان URL + END POINTE
       final response =
-          await http.get(Uri.parse(_baseUrl + url), headers: header);
+          await http.get(Uri.parse(_baseUrl + url));
       responseJson = _returnResponse(response);
        // هنا اذا صار في غلط ابعت اللغلط الي صار
     } on SocketException {
