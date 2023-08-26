@@ -16,30 +16,37 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   HomeRemoteDataSourceImpl(this.apiBaseHelper);
   @override
   Future<List<BookEntity>> fetchFeaturedBooks()async {
-    var data= await apiBaseHelper.get("volumes?Filtering=free-ebooks&q=computer science");
+    var data= await apiBaseHelper.get("volumes?Filtering=free-ebooks&Sorting=newest &q=computer science");
 
 
         List<BookEntity> books = getBooksList(data);
         return books ;
   }
 
-  List<BookEntity> getBooksList(data) {
-     List<BookEntity> books = [];
-    // مكان الايتم
-    for(var bookmap in data["items"]){
-      // هنا هيبعتلي اكتب
-      // علشان اضيفو موب كتب
-      //هيرجعلي كتب ماب
-      books.add(Item.fromJson(bookmap) );
-    }
-    return books;
-  }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() {
-    // TODO: implement fetchNewestBooks
-    throw UnimplementedError();
+  Future<List<BookEntity>> fetchNewestBooks()async {
+    var data= await apiBaseHelper.get("volumes?Filtering=free-ebooks&q=computer science");
+
+
+    List<BookEntity> books = getBooksList(data);
+    return books ;
   }
-}
 
 // هنا ينفذذ كل المطلوب منو في data remote
+
+ List<BookEntity> getBooksList(data) {
+   List<BookEntity> books = [];
+   // مكان الايتم
+   for(var bookmap in data["items"]){
+     // هنا هيبعتلي اكتب
+     // علشان اضيفو موب كتب
+     //هيرجعلي كتب ماب
+     books.add(Item.fromJson(bookmap) );
+   }
+   return books;
+ }
+
+
+}
+
