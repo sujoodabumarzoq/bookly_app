@@ -12,7 +12,7 @@ class FetchFeaturedNewUsaCase extends UseCase<List<BookEntity>, NoParam> {
   FetchFeaturedNewUsaCase(this.homeRepo);
 
   @override
-  Future<Either<AppException, List<BookEntity>>> call([NoParam? param]) {
+  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) {
     return homeRepo.fetchNewestBooks();
   }
 }
