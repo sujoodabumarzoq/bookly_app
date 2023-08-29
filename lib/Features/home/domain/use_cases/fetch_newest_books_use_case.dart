@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/home/domain/repos/home_repo.dart';
+import 'package:bookly_app/network/app_exception.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/failur.dart';
@@ -11,7 +12,7 @@ class FetchFeaturedNewUsaCase extends UseCase<List<BookEntity>, NoParam> {
   FetchFeaturedNewUsaCase(this.homeRepo);
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) {
+  Future<Either<AppException, List<BookEntity>>> call([NoParam? param]) {
     return homeRepo.fetchNewestBooks();
   }
 }
