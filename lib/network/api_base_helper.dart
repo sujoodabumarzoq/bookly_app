@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'app_exception.dart';
 
 class ApiBaseHelper {
+  final Dio _dio;
   //1 هاذا بيكون مشتركة عنوان
   final String _baseUrl = "https://www.googleapis.com/books/v1/";
+
+  ApiBaseHelper(this._dio);
 //2 url هاذا هنا بتكون عبارة عن END POINRTE
   // DATA الي راحع عبارة عن  Map<String, String>
 
