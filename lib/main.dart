@@ -19,6 +19,8 @@ void main() async {
   Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(BookEntityAdapter());
   setupServiceLocator();
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewsBox);
   runApp(const Bookly());
