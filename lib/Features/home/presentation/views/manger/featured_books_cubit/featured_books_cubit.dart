@@ -7,10 +7,10 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.featuredBooksUseCase) : super(FeaturedBooksInitial());
 // هيتعامل مع UsaCase
   final FetchFeaturedBooksUsaCase featuredBooksUseCase;
-  Future<void> fetchFeaturedBooks() async {
+  Future<void> fetchFeaturedBooks({int pageNumber = 0}) async {
     emit(FeaturedBooksLoading());
     //هنا بيرجع either صح وغلط
-    var result = await featuredBooksUseCase.call();
+    var result = await featuredBooksUseCase.call(pageNumber);
     //fold :  بتاخد 2 طرق
     //1
     result.fold((failure) {
