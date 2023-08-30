@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/Features/home/domain/entites/entities.dart';
 import 'package:bookly_app/Features/home/domain/use_cases/fetch_featured_books_usa_case.dart';
+import 'package:bookly_app/Features/home/presentation/views/manger/featured_books_cubit/featured_books_state.dart';
 
-part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.featuredBooksUseCase) : super(FeaturedBooksInitial());

@@ -1,6 +1,6 @@
-part of 'featured_books_cubit.dart';
 
-@immutable
+import 'package:bookly_app/Features/home/domain/entites/entities.dart';
+
 abstract class FeaturedBooksState {}
 
 class FeaturedBooksInitial extends FeaturedBooksState {}
