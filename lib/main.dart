@@ -7,6 +7,7 @@ import 'package:bookly_app/Features/home/presentation/views/manger/newset_books_
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/funcation/setup_service_locator.dart';
+import 'package:bookly_app/core/utils/simple_bloc_observer.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
-
+  Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewsBox);
