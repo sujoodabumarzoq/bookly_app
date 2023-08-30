@@ -35,20 +35,14 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         .get("volumes?Filtering=free-ebooks&q=computer science");
 
     List<BookEntity> books = getBooksList(data);
-    saveBooksData(books,kNewsBox );
+    saveBooksData(books, kNewsBox);
 
     return books;
   }
 
-// هنا ينفذذ كل المطلوب منو في data remote
-
   List<BookEntity> getBooksList(data) {
     List<BookEntity> books = [];
-    // مكان الايتم
     for (var bookmap in data["items"]) {
-      // هنا هيبعتلي اكتب
-      // علشان اضيفو موب كتب
-      //هيرجعلي كتب ماب
       books.add(Item.fromJson(bookmap));
     }
     return books;

@@ -10,7 +10,6 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   @override
   List<BookEntity> fetchFeaturedBooks() {
-    // معي ال box الي في بيانات الي انامهتمة فيها
     var box = Hive.box <BookEntity>(kFeaturedBox);
 
  return box.values.toList();
@@ -24,5 +23,3 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   }
 
 }
-// ليش هنا ما في Future
-//لان انا هكون حافظه هاذا البيانات مش هستنى تيجي
