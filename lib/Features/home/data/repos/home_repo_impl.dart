@@ -20,11 +20,11 @@ class HomeRepoImpl extends HomeRepo {
 
     try {
 
-      booksList = homeLocalDataSource.fetchFeaturedBooks();
+      booksList = homeLocalDataSource.fetchFeaturedBooks(        pageNumber: pageNumber,);
       if (booksList.isNotEmpty) {
         return right(booksList);
       }
-      booksList = await homeRemoteDataSource.fetchFeaturedBooks();
+      booksList = await homeRemoteDataSource.fetchFeaturedBooks(        pageNumber: pageNumber,);
       return right(booksList);
     } catch (e) {
       // ignore: deprecated_member_use
