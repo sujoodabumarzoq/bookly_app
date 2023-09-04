@@ -31,6 +31,8 @@ class ServerFailure extends Failure {
         return ServerFailure('No Internet Connection');
       case DioErrorType.unknown:
         return ServerFailure('Opps There was an Error, Please try again');
+
+
     }
   }
 
@@ -46,3 +48,5 @@ class ServerFailure extends Failure {
     }
   }
 }
+
+//https://github.com/khaledgamal22/my_bookly_app/commit/9cf7a24235f927f22c0a42cfdbc1f43e38bbc8ac#diff-a1cd44252b65dedc8ee5dc7cf48db83a0409c6910d5cc3d6d294b554f6e1c67b

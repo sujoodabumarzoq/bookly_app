@@ -7,7 +7,7 @@ import 'package:bookly_app/network/api_base_helper.dart';
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
 
-  Future<List<BookEntity>> fetchNewestBooks();
+  Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0});
 }
 
 // هنا من هدف اني اجلب البيانات مش اعمل اذا هو خطا اولا
@@ -30,9 +30,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async {
+  Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     var data = await apiBaseHelper.get(
-        "volumes?Filtering=free-ebooks&Sorting=newest &q=computer science");
+        "volumes?Filtering=free-ebooks&Sorting=newest &q=computer science=${pageNumber * 10}");
 
     List<BookEntity> books = getBooksList(data);
     saveBooksData(books, kNewsBox);

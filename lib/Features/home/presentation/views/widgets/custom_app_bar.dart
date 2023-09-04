@@ -1,7 +1,8 @@
-import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/Features/home/presentation/views/manger/ThemeCubit/ThemeCubit.dart';
+import 'package:bookly_app/Features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets.dart';
 
@@ -20,9 +21,20 @@ class CustomAppBar extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
+            onPressed: () {
+              context.read<ThemeCubit>().toggleTheme();
+            },
+            icon: const Icon(Icons.brightness_6), // رمز التبديل بين الوضعين
+            // color: Theme.of(context).brightness == Brightness.light ? Colors.blue : Colors.white,
+
+          ),
+
+          IconButton(
               onPressed: () {
-                GoRouter.of(context).push(AppRouter.kSearchView);
-              },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  const SearchView()),
+                );              },
               icon: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 22,

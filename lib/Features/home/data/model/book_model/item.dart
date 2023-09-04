@@ -28,9 +28,10 @@ class Item extends BookEntity {
           bookid: id!,
           title: volumeInfo!.title!,
           authorName: volumeInfo.authors?.first ?? 'no name',
-          image: volumeInfo.imageLinks?.thumbnail ?? '',
-          price: 0.0,
-          rating: volumeInfo.maturityRating,
+          image: volumeInfo.imageLinks.thumbnail ?? '',
+          price: volumeInfo.pageCount,
+    previewLink: volumeInfo.previewLink,
+          rating: volumeInfo.averageRating?.toString(),
         );
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         kind: json['kind'] as String?,

@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/home/domain/entites/entities.dart';
+import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,10 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  BookDetailsView(books: books,)),
+        );
       },
       child: SingleChildScrollView(
         child: Column(
@@ -66,13 +70,13 @@ class BookListViewItem extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                             "Free",
+                                "\$${books.price.toString()}",
                                 style: Styles.textStyle20.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               const Spacer(),
-                              const BookRating(),
+                               BookRating(books: books,),
                             ],
                           ),
                         ],

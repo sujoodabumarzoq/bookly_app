@@ -8,7 +8,6 @@ import '../../Features/Splash/presentation/views/splash_view.dart';
 abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kBookDetailsView = '/bookDetailsView';
-  static const kSearchView = '/searchView';
 
   static final router = GoRouter(
     routes: [
@@ -16,18 +15,18 @@ abstract class AppRouter {
         path: '/',
         builder: (context, state) => const SplashView(),
       ),
-      GoRoute(
-        path: kSearchView,
-        builder: (context, state) => const SearchView(),
-      ),
+      // GoRoute(
+      //   path: kSearchView,
+      //   builder: (context, state) => const SearchView(),
+      // ),
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
-      GoRoute(
-        path: kBookDetailsView,
-        builder: (context, state) => const BookDetailsView(),
-      ),
+      // GoRoute(
+      //   path: kBookDetailsView,
+      //   builder: (context, state) =>  BookDetailsView(),
+      // ),
     ],
   );
 }
